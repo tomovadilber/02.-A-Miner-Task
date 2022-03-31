@@ -1,0 +1,43 @@
+using System;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Collections.Generic;
+using System.Collections;
+
+
+namespace AssociativeArrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string type = Console.ReadLine();
+
+            long num;
+
+            Dictionary<string, long> result = new Dictionary<string, long>();
+
+            while (type != "stop")
+            {
+                num = long.Parse(Console.ReadLine());
+
+                if (result.ContainsKey(type))
+                {
+                    result[type] += num;
+                }
+                else
+                {
+                    result.Add(type, num);
+                }
+                
+                type = Console.ReadLine();
+            }
+
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value}");
+            }
+        }
+    }
+}
